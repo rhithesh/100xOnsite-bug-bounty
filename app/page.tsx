@@ -20,15 +20,17 @@ export default function Home() {
   };
 
   const toggleComplete = id => {
-    setTodos(
-      todos.map(todo =>
+    setTodos(prevTodos => {
+      return prevTodos.map(todo =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
+      );
+    });
   };
 
   const deleteTodo = id => {
-    setTodos(todos.filter(todo => todo.id != id));
+    setTodos(prevTodos => {
+      return prevTodos.filter(todo => todo.id != id);
+    });
   };
 
   return (
