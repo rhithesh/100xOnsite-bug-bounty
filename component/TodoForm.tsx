@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 
-const TodoForm = ({ onAddTodo }) => {
-  const [newTodo, setNewTodo] = useState("");
+interface TodoFormProps {
+  onAddTodo: (todo: string) => void;
+}
 
-  const handleSubmit = (e) => {
+const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
+  const [newTodo, setNewTodo] = useState<string>("");
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (newTodo !== "") {
+    if (newTodo.trim() !== "") {
       onAddTodo(newTodo);
       setNewTodo("");
     }
@@ -29,4 +33,5 @@ const TodoForm = ({ onAddTodo }) => {
     </form>
   );
 };
+
 export default TodoForm;
