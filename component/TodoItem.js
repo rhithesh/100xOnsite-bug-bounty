@@ -2,13 +2,13 @@ import React from "react";
 
 const TodoItem = ({ todo, onToggleComplete, onDelete }) => {
   return (
-    <div className="flex items-center justify-between p-4 border rounded-md shadow-sm bg-gray-100">
+    <div className="flex     p-5 items-center justify-between my-5  border rounded-md shadow-sm ">
       <div className="flex items-center">
         <input
           type="checkbox"
           checked={todo.completed}
           onChange={() => onToggleComplete(todo.id)}
-          className="mr-2 w-4 h-4 rounded focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="mr-2 w-4 h-4 rounded focus:ring-2 focus:ring-offset-2  focus:ring-indigo-500"
         />
         <label
           className={`${

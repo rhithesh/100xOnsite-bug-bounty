@@ -12,7 +12,10 @@ const TodoForm = ({ onAddTodo }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col w-full mt-4">
+    <form
+      onSubmit={handleSubmit}
+      className="flex  w-[450px]  py-10   flex-col  mt-4"
+    >
       <input
         type="text"
         value={newTodo}
@@ -22,7 +25,7 @@ const TodoForm = ({ onAddTodo }) => {
       />
       <button
         type="submit"
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700"
+        className="bg-blue-500 w-[100px] hover:bg-blue-700 text-white font-bold  p-3 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700"
       >
         Add
       </button>
