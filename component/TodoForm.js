@@ -5,7 +5,7 @@ const TodoForm = ({ onAddTodo }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (newTodo !== "") {
+    if (newTodo !== "" && newTodo != null) {
       onAddTodo(newTodo);
       setNewTodo("");
     }
