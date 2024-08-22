@@ -19,6 +19,7 @@ export default function Home() {
     if (storedTodos) {
       try {
         const parsedTodos = JSON.parse(storedTodos);
+        // Ensure parsedTodos is an array before setting state
         if (Array.isArray(parsedTodos)) {
           setTodos(parsedTodos);
         }
@@ -40,11 +41,14 @@ export default function Home() {
   // Add a new todo
   const addTodo = (text: string) => {
     if (text.trim().length === 0) return; // Prevent adding empty todos
+
     const newTodo: Todo = {
-      id: Math.random(),
+      id: Date.now(), // Generate a unique integer ID using the current timestamp
       text,
       completed: false,
     };
+
+    // Update the todos state by appending the new todo
     setTodos([...todos, newTodo]);
   };
 
