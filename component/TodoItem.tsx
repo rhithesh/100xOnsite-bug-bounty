@@ -1,6 +1,22 @@
 import React from "react";
 
-const TodoItem = ({ todo, onToggleComplete, onDelete }) => {
+interface Todo {
+  id: number;
+  text: string;
+  completed: boolean;
+}
+
+interface TodoItemProps {
+  todo: Todo;
+  onToggleComplete: (id: number) => void;
+  onDelete: (id: number) => void;
+}
+
+const TodoItem: React.FC<TodoItemProps> = ({
+  todo,
+  onToggleComplete,
+  onDelete,
+}) => {
   return (
     <div className="flex items-center justify-between p-4 border rounded-md shadow-sm bg-gray-100">
       <div className="flex items-center">
