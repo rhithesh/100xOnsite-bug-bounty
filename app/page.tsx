@@ -6,7 +6,7 @@ import TodoList from "../component/TodoList";
 import { useState } from "react";
 
 export default function Home() {
-  const [todos, setTodos] = useState();
+  const [todos, setTodos] = useState([]);
 
   const addTodo = (text) => {
     const newTodo = {
