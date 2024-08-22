@@ -6,7 +6,7 @@ import TodoList from "../component/TodoList";
 import { useState } from "react";
 
 export default function Home() {
-  const [todos, setTodos] = useState();
+  const [todos, setTodos] = useState([]);
 
   const addTodo = (text) => {
     const newTodo = {
@@ -26,12 +26,12 @@ export default function Home() {
   };
 
   const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id != id));
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   return (
-    <div class="container mx-auto px-4 py-8">
-      <h1 class="text-3xl font-bold mb-6">Todo List</h1>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-6">Todo List</h1>
       <TodoForm onAddTodo={addTodo} />
       <TodoList
         todos={todos}
