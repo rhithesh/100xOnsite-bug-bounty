@@ -17,13 +17,24 @@ export default function Home() {
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");
     if (storedTodos) {
-      setTodos(JSON.parse(storedTodos));
+      try {
+        const parsedTodos = JSON.parse(storedTodos);
+        if (Array.isArray(parsedTodos)) {
+          setTodos(parsedTodos);
+        }
+      } catch (error) {
+        console.error("Error parsing stored todos:", error);
+      }
     }
   }, []);
 
-  // Save todos to localStorage whenever they change
+  // Save todos to localStorage whenever they change, but only if not an empty array
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
+    if (todos.length > 0) {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    } else {
+      localStorage.removeItem("todos"); // Clear localStorage if todos is empty
+    }
   }, [todos]);
 
   // Add a new todo
